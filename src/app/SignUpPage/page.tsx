@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from '../../../public/assets/images/LandingSVG.svg';
+// import config from "../../../../config/index.json";
 import config from "../../config/index.json";
 import { AiFillEye, AiOutlineEye } from "react-icons/ai";
 
