@@ -37,6 +37,7 @@ import {
 
 import {FiEdit2} from "react-icons/fi";
 import Link from "next/link";
+import { CSVLink } from "react-csv";
 
 const data: Payment[] = [
   {
@@ -99,6 +100,17 @@ const data: Payment[] = [
 
   },
 ]
+
+const formatter_data = data.map(row => (
+  {
+     ID : row.id,
+     PRODUCT : row.product,
+     INVENTORY : row.inventory,
+     TYPE : row.type,
+     VENDOR : row.vendor,
+    
+  }
+))
 
 export type Payment = {
   id : string
@@ -343,8 +355,9 @@ export default function Inventory(){
             </div> 
             <div>
                 <div className="flex gap-10">
-                    <div className="flex gap-2">
-                        <button className="text-[#ec4755] border  border-orange-500 rounded p-2">Export</button>
+                    <div className="flex gap-2"> 
+
+                        <CSVLink data={formatter_data}>Export</CSVLink>
                         <button className="text-[#ec4755] border border-orange-500 rounded p-2">Import</button>
                     </div>
                     <button className="text-white bg-[#ec4755] p-2 rounded">Manage Directory</button>
