@@ -40,7 +40,7 @@ export default function  OrderDetails(){
             </section> */}
             <section >
                 <p className="text-[#ec4755] font-bold mb-5">Payment section</p>
-                <div className="sm:flex  w-full gap-5">
+                <div className="flex max-sm:flex-col  w-full gap-5">
                     <div className="flex flex-col w-full rounded border rounded p-3"> 
                         <div className="border-b">
                             <div className="p-3">
@@ -97,7 +97,7 @@ export default function  OrderDetails(){
                             </div>
                     </div>
                     
-                    <div className="mt-5">
+                    <div>
                         <Card email={"example.com"} shippingAddress = {"shipping address"} BillingAddress = {"billing address"}/>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ function  TimeLine(){
 function Card({email , shippingAddress  , BillingAddress}){
     return (
         
-    <div className="flex flex-col border rounded-lg sm:w-[25rem]">
+    <div className="flex flex-col border rounded-lg sm:w-[25rem] h-full">
         <div className="p-l-3 border-b px-10 p-3 w-full">
             <p className="font-bold">Contact</p>
             <p className="text-gray-500 w-full">{email}</p>

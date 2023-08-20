@@ -356,9 +356,8 @@ export default function Inventory(){
             <div>
                 <div className="flex gap-10">
                     <div className="flex gap-2"> 
-
-                        <CSVLink data={formatter_data}>Export</CSVLink>
-                        <button className="text-[#ec4755] border border-orange-500 rounded p-2">Import</button>
+                        <button className="text-[#ec4755] border rounded border-[#ec4755] p-2">Export</button>
+                        <button className="text-[#ec4755] border border-[#ec4755] rounded p-2">Import</button>
                     </div>
                     <button className="text-white bg-[#ec4755] p-2 rounded">Manage Directory</button>
                 </div>
