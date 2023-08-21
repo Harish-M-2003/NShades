@@ -10,7 +10,7 @@ import Inventory from "~/app/Inventory/page";
 import Order from "~/app/Orders/page";
 import ProductsPage from "~/app/ProductsPage/page";
 import Editing from "~/app/Editing/page";
-import Template from "./Template";
+import Template from "../../app/Templates/page";
 import OrderDetails from "~/app/OrdersDetails/page";
 
 
@@ -57,7 +57,7 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
         <div>
             {icon}
         </div>
-        <p className="m-1 active:underline"><b>{menuName}</b></p>
+        <p className="m-1 hover:underline hover:cursor-pointer"><b>{menuName}</b></p>
 
         {
             // (!menuPressed)?
@@ -82,7 +82,7 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
                 <div>
                     {option.icon}
                 </div>
-                <p className=" p-3 w-full">{option.name}</p>
+                <p className=" p-3 w-full hover:font-bold hover:cursor-pointer">{option.name}</p>
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import TemplatePage from "./CustomSite";
+import TemplatePage from "../../components/ui/CustomSite";
 import { GiHamburgerMenu } from "react-icons/gi";
 //import Link from "next/link";
 
@@ -24,13 +25,15 @@ export default function  Template( {trigger , nav , current_page}){
     const [pageHeading , setPageHeading] = useState("SiteName");
     const [pageDescription , setPageDescription] = useState("Site description...");
     const [handburger , setHandburger] = useState(true);
-    const [pageAboutObjec , setAboutPageObject] = useState(null);
-    const [pageAboutDescriptionTitle , setPageAboutDescriptionTitle] = useState("");
-    const [pageAboutDescription , setPageAboutDescription] = useState("");
+    const [pageAboutObject , setAboutPageObject] = useState(null);
+    const [pageAboutDescriptionTitle , setPageAboutDescriptionTitle] = useState("About");
+    const [pageAboutDescription , setPageAboutDescription] = useState(
+        "Lorem eadandaksjndas asjdnaksjdn asdkjnaskjdnaksd asjdnaksjdnakjsd asdknaksdjnakjsd ");
     const [pageImage , setPageImage] = useState(null);
     const [pageBgImage , setPageBgImage]  = useState(null);
     const [pageImageAlignLeft , setPageImageAlignLeft] = useState(true);
-    const [pageCompanyName , setPageCompanyName] = useState("CompanyName");
+    // const [pageCompanyName , setPageCompanyName] = useState("CompanyName");
+    const [lightTheme , setLightTheme] = useState(1);
 
     function handlePreview(event){
 
@@ -58,7 +61,7 @@ export default function  Template( {trigger , nav , current_page}){
 
     return (
         <div className="h-screen w-screen">
-            <div className="w-full flex justify-between p-3 items-center">
+            <div className="w-full flex justify-between p-3 items-center border border-gray-200 border-t-none border-l-none border-r-none">
                 <div className="flex items-center gap-5">
                     <div onClick={()=> setHandburger(!handburger)}>
                         <GiHamburgerMenu/>
@@ -80,23 +83,23 @@ export default function  Template( {trigger , nav , current_page}){
                 <div className={`w-[20rem] ${(handburger)?"visible":"hidden"} max-sm:absolute z-[2] bg-white max-sm:w-[100%]`}>
                     {/* left section content */}
                     <div className="p-3 flex flex-col gap-10 overflow-y-auto  h-full">
-                        <div className="flex flex-col gap-2">
+                        {/* <div className="flex flex-col gap-2">
                             <label>Company Name</label>
                             <input 
                             maxLength={15}
                             onChange={(e) => setPageCompanyName(e.target.value)}
                             className="border p-2 rounded m-1" 
                             placeholder="ex. Google"/>
-                        </div>
-                        <div>
-                            <div className="grid w-full max-w-sm items-center gap-1.5">
+                        </div> */}
+                        <div className="mt-5">
+                            <div className="grid w-full max-w-sm items-center gap-2">
                             <Label htmlFor="picture">Background Image</Label>
                             <Input id="picture" type="file" onChange={handlePreview} />
                             </div>
                         </div>
                         
                         <div>
-                            <div className="grid w-full max-w-sm items-center gap-1.5">
+                            <div className="grid w-full max-w-sm items-center gap-2">
                             <Label htmlFor="picture">About Image</Label>
                             <Input id="picture" type="file" onChange={handlePreviewAbout} />
                             </div>
@@ -104,9 +107,9 @@ export default function  Template( {trigger , nav , current_page}){
                         <div className="flex flex-col gap-2">
                             <label>Heading</label>
                             <input 
-                            maxLength={35}
+                            maxLength={25}
                             onChange={(e) => setPageHeading(e.target.value)}
-                            className="border p-2 rounded m-1" 
+                            className="border p-2 rounded m-1 whitespace-normal" 
                             placeholder="ex. search the wen in a way you want.."/>
                         </div>
                         <div className="flex flex-col gap-2">
@@ -138,6 +141,21 @@ export default function  Template( {trigger , nav , current_page}){
                                 </SelectContent>
                             </Select>
                         </div>
+                        <div className="flex flex-col gap-2 w-full">
+                        <label>Theme</label>
+                        <Select onValueChange={(e) => setLightTheme((e === "Light")? 1 : 0) }>
+                                <SelectTrigger className="outline-none">
+                                    <SelectValue placeholder="Theme" />
+                                </SelectTrigger>
+                                <SelectContent className="w-full">
+                                    <SelectGroup >
+                                        <SelectLabel>Theme</SelectLabel>
+                                        <SelectItem value="Light" >Light</SelectItem>
+                                        <SelectItem value="Dark">Dark</SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                        </div>
                         <div className="flex flex-col gap-2">
                             <label>Layout</label>
                             <input 
@@ -165,7 +183,7 @@ export default function  Template( {trigger , nav , current_page}){
                 </div>
                 <div className="w-full">
                     {/* right section content */}
-                    <div className="h-full bg-gray-500">
+                    <div className="h-full">
                         <TemplatePage 
                         heading = {pageHeading} 
                         bgimage={pageBgImage}
@@ -174,7 +192,8 @@ export default function  Template( {trigger , nav , current_page}){
                         about_description={pageAboutDescription}
                         image_align = {pageImageAlignLeft}
                         about_description_title={pageAboutDescriptionTitle}
-                        company_name={pageCompanyName}
+                        // company_name={pageCompanyName}
+                        theme = {lightTheme}
                         /> {/*GENERATED TEMPLATE PAGE*/}
                     </div>
                 </div>
