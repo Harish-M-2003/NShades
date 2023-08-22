@@ -6,12 +6,13 @@
 // import { MdAccountCircle } from "react-icons/md";
 
 // import 'react-quill/dist/quill.snow.css';
-import SideBar from "~/components/ui/SideBar";
+// import SideBar from "~/components/ui/SideBar";
+import Inventory from "../Inventory/page";
 
 
-  export default function Main({pages}) {
+export default function Main() {
     
-    return <SideBar page = {pages}/>
+    return <Inventory/>
     
   }
   

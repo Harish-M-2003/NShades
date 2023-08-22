@@ -17,23 +17,29 @@ import {
 
 import {Input} from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import Inventory from "~/app/Inventory/page";
+// import Inventory from "~/app/Inventory/page";
+// import { Link } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
-export default function  Template( {trigger , nav , current_page}){
+export default function  Template(){
 
     const [pageHeading , setPageHeading] = useState("SiteName");
     const [pageDescription , setPageDescription] = useState("Site description...");
     const [handburger , setHandburger] = useState(true);
-    const [pageAboutObject , setAboutPageObject] = useState(null);
+    // const [pageAboutObject , setAboutPageObject] = useState(null);
     const [pageAboutDescriptionTitle , setPageAboutDescriptionTitle] = useState("About");
     const [pageAboutDescription , setPageAboutDescription] = useState(
         "Lorem eadandaksjndas asjdnaksjdn asdkjnaskjdnaksd asjdnaksjdnakjsd asdknaksdjnakjsd ");
+    const [pageButtonText , setPageButtonText] = useState("Support");
     const [pageImage , setPageImage] = useState(null);
     const [pageBgImage , setPageBgImage]  = useState(null);
     const [pageImageAlignLeft , setPageImageAlignLeft] = useState(true);
     // const [pageCompanyName , setPageCompanyName] = useState("CompanyName");
     const [lightTheme , setLightTheme] = useState(1);
+
+    const router = useRouter();
+    
 
     function handlePreview(event){
 
@@ -66,13 +72,13 @@ export default function  Template( {trigger , nav , current_page}){
                     <div onClick={()=> setHandburger(!handburger)}>
                         <GiHamburgerMenu/>
                     </div>
-                    <p className="font-bold" onClick={() => {
-                        setHandburger(false)
-                        trigger(true)
-                        nav(true)
-                        current_page(<Inventory/>)
-                        
-                    }}>NShades</p>
+                        <p className="font-bold" onClick={() => {
+                            // setHandburger(false)
+                            // trigger(true)
+                            // nav(true)
+                            router.push("/")
+                            
+                        }}>NShades</p>
                 </div>
                 <div className="flex gap-5">
                     <button className="text-[#ec4755] p-2 rounded">Live</button>
@@ -82,7 +88,7 @@ export default function  Template( {trigger , nav , current_page}){
             <div className="h-full flex">
                 <div className={`w-[20rem] ${(handburger)?"visible":"hidden"} max-sm:absolute z-[2] bg-white max-sm:w-[100%]`}>
                     {/* left section content */}
-                    <div className="p-3 flex flex-col gap-10 overflow-y-auto  h-full">
+                    <div className="p-3 flex flex-col gap-10 overflow-y-auto  h-full border">
                         {/* <div className="flex flex-col gap-2">
                             <label>Company Name</label>
                             <input 
@@ -110,14 +116,30 @@ export default function  Template( {trigger , nav , current_page}){
                             maxLength={25}
                             onChange={(e) => setPageHeading(e.target.value)}
                             className="border p-2 rounded m-1 whitespace-normal" 
-                            placeholder="ex. search the wen in a way you want.."/>
+                            placeholder="ex. SiteName"/>
                         </div>
+                        <div className="flex flex-col gap-2">
+                            <label>Button Text</label>
+                                <input 
+                                maxLength={15}
+                                onChange={(e) => setPageButtonText(e.target.value)}
+                                className="border p-2 rounded m-1 whitespace-normal" 
+                                placeholder="ex. Support"/>
+                            </div>
                         <div className="flex flex-col gap-2">
                             <label>Text</label>
                             <textarea 
                             cols={80}
                             maxLength={80}
                             onChange={(e) => setPageDescription(e.target.value)}
+                            className = "border resize-none outline-none p-2 h-[10rem]" placeholder={pageDescription}/>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <label>About Text</label>
+                            <textarea 
+                            cols={80}
+                            maxLength={150}
+                            onChange={(e) => setPageAboutDescription(e.target.value)}
                             className = "border resize-none outline-none p-2 h-[10rem]" placeholder={pageDescription}/>
                         </div>
                         <div className="flex flex-col gap-2 w-full">
@@ -193,6 +215,7 @@ export default function  Template( {trigger , nav , current_page}){
                         image_align = {pageImageAlignLeft}
                         about_description_title={pageAboutDescriptionTitle}
                         // company_name={pageCompanyName}
+                        buttonText = {pageButtonText}
                         theme = {lightTheme}
                         /> {/*GENERATED TEMPLATE PAGE*/}
                     </div>

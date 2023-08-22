@@ -19,6 +19,7 @@ import {
 import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
 import DropzoneComponent from "~/components/ui/DragAndDropField";
+import SideBar from "~/components/ui/SideBar";
 
 
 function CardWithForm() {
@@ -142,7 +143,7 @@ function MainSection({title , description , data}){
 }
 
 
-export default function Editing({title , description , data}) {
+function EditingSection({title , description , data}) {
 
   return (
         <div className="w-full h-screen  overflow-y-scroll scroll whitespace-nowrap">
@@ -150,4 +151,8 @@ export default function Editing({title , description , data}) {
         </div>
     
   );
+}
+
+export default function Editing({title , description , data}){
+  return <SideBar page={<EditingSection title={title} description={description} data={data}/>}/>
 }

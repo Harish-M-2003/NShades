@@ -12,37 +12,59 @@ import ProductsPage from "~/app/ProductsPage/page";
 import Editing from "~/app/Editing/page";
 import Template from "../../app/Templates/page";
 import OrderDetails from "~/app/OrdersDetails/page";
+import { Link } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
-function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,show_default_nav , open , current_page}) {
+function SideMenu({ id , icon , menuName , options ,
+  //  onClick ,
+    sidebar_trigger ,show_default_nav , open , 
+    // current_page
+  }) {
 
   // const [menuPressed, setMenuPressed] = useState(0);
   const [selectedOption , setSelectedOption] = useState(false);
   const [data , setData] = useState("data");
 
+  const router = useRouter();
+
 
   function handlePageSelection(option){
+
     if (option === "Inventory"){
-      onClick(<Inventory/>);
-    }
-    else if (option === "All Orders"){
-      onClick(<Order/>);
-    }
-    else if (option === "All Products"){
-      onClick(<Editing 
-        title={"Add Product"} 
-        description={"Add the details about the product you're going to post."}
-        data = {data}
-        />)
-    }
-    else if (option === "Checkouts"){
-      onClick(<OrderDetails/>)
+      return "/Inventory";
     }
     else if (option === "Edit Page"){
-      sidebar_trigger(false);
-      show_default_nav(false);
-      onClick(<Template trigger={sidebar_trigger} nav = {show_default_nav} current_page = {current_page}/>)
+      return "/Templates";
     }
+    else if (option === "All Orders"){
+      return "/Orders";
+    }
+    else if (option == "Checkouts"){
+      return "/OrdersDetails";
+    }
+
+    // if (option === "Inventory"){
+    //   onClick(<Inventory/>);
+    // }
+    // else if (option === "All Orders"){
+    //   onClick(<Order/>);
+    // }
+    // else if (option === "All Products"){
+    //   onClick(<Editing 
+    //     title={"Add Product"} 
+    //     description={"Add the details about the product you're going to post."}
+    //     data = {data}
+    //     />)
+    // }
+    // else if (option === "Checkouts"){
+    //   onClick(<OrderDetails/>)
+    // }
+    // else if (option === "Edit Page"){
+    //   sidebar_trigger(false);
+    //   show_default_nav(false);
+    //   onClick(<Template trigger={sidebar_trigger} nav = {show_default_nav} current_page = {current_page}/>)
+    // }
   }
   
   
@@ -72,18 +94,24 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
         { open ? (
           <div className=" w-full ml-5 ">
             {options.map((option:any, index:any) => (
-              <div 
+              // <Link href={`"\\"+${option.name}`}>
+                  <div 
 
-              onClick={() => {
-                handlePageSelection(option.name)
-                setSelectedOption(!selectedOption)
-              }} 
-              className={`flex items-center justify-end hover:bg-red-700 px-2 ml-5`}>
-                <div>
-                    {option.icon}
-                </div>
-                <p className=" p-3 w-full hover:font-bold hover:cursor-pointer">{option.name}</p>
-              </div>
+                    onClick = {() => router.push(handlePageSelection(option.name))}
+
+                      // onClick={() => {
+                      //   handlePageSelection(option.name)
+                      //   setSelectedOption(!selectedOption)
+                      // }} 
+
+                      className={`flex items-center justify-end hover:bg-red-700 px-2 ml-5`}>
+                        <div>
+                            {option.icon}
+                        </div>
+                        <p className=" p-3 w-full hover:font-bold hover:cursor-pointer">{option.name}</p>
+                    </div>
+              // </Link> 
+              
             ))}
           </div>
         ) : (
@@ -98,7 +126,7 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
 export default function SideBar({page}){
 
     const [handBurger , setHandBurger] = useState(true);
-    const [currentPage , setCurrentPage] = useState(page);
+    // const [currentPage , setCurrentPage] = useState(page);
     const [showNav , setShowNav] = useState(true); 
     const [isMobile, setIsMobile] = useState(false);
     const [menuOpen , setMenuOpen] = useState(null);
@@ -177,11 +205,11 @@ export default function SideBar({page}){
                       menuName={option.name} 
                       options={option.optionlist} 
                       key={index}
-                      onClick = {setCurrentPage}
+                      // onClick = {setCurrentPage}
                       open={(menuOpen === index)}
                       sidebar_trigger={setHandBurger}
                       show_default_nav = {setShowNav}
-                      current_page={setCurrentPage}
+                      // current_page={setCurrentPage}
                   />
               </div>
                   
@@ -189,8 +217,8 @@ export default function SideBar({page}){
             
           </div>
           <div className="w-full overflow-y-scroll">
-              {/* {console.log(currentPage)} */}
-              {currentPage}
+              {/* / {console.log(currentPage)}  commit this line */}
+              {page}
           </div>
         </div>
       </div>

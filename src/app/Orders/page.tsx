@@ -48,6 +48,7 @@ import {
   TableHeader,
   TableRow,
 } from "~/components/ui/table"
+import SideBar from "~/components/ui/SideBar";
 
 function Tab() {
   return (
@@ -398,8 +399,7 @@ function DataTable({filter_data}) {
   )
 }
 
-
-export default function Order(){
+function OrderSection(){
 
   return (
       <div className="h-screen px-5 py-3 w-full">
@@ -415,5 +415,8 @@ export default function Order(){
           </section>
       </div>
   );
+}
 
+export default function Order(){
+  return <SideBar page={<OrderSection/>}/>
 }

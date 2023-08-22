@@ -38,6 +38,7 @@ import {
 import {FiEdit2} from "react-icons/fi";
 import Link from "next/link";
 import { CSVLink } from "react-csv";
+import SideBar from "~/components/ui/SideBar";
 
 const data: Payment[] = [
   {
@@ -101,16 +102,16 @@ const data: Payment[] = [
   },
 ]
 
-const formatter_data = data.map(row => (
-  {
-     ID : row.id,
-     PRODUCT : row.product,
-     INVENTORY : row.inventory,
-     TYPE : row.type,
-     VENDOR : row.vendor,
+// const formatter_data = data.map(row => (
+//   {
+//      ID : row.id,
+//      PRODUCT : row.product,
+//      INVENTORY : row.inventory,
+//      TYPE : row.type,
+//      VENDOR : row.vendor,
     
-  }
-))
+//   }
+// ))
 
 export type Payment = {
   id : string
@@ -343,12 +344,10 @@ function DataTable() {
     </div>
   )
 }
-
-export default function Inventory(){
+function InventorySection(){
 
     return (
-        <div className="w-full h-full gap-5 px-5 ">
-          
+        <div className="w-full h-full gap-5 px-5">
             <div className="w-full py-5">
                 <p><b>Invetory Details</b></p>
                 <p className="text-gray-400">View , edit and delete your products.</p>
@@ -367,4 +366,11 @@ export default function Inventory(){
             </div>
         </div>
     );
+}
+
+export default function Inventory(){
+
+  return (
+    <SideBar page={<InventorySection/>} />
+  )
 }

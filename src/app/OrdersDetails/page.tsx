@@ -16,8 +16,9 @@ import {
     SelectTrigger,
     SelectValue,
   } from "~/components/ui/select"
+import SideBar from "~/components/ui/SideBar";
 
-export default function  OrderDetails(){
+function  OrderDetailsSection(){
 
     const billDetails = [
     {
@@ -189,4 +190,9 @@ function Card({email , shippingAddress  , BillingAddress}){
         </div>
     </div>
     );
+}
+
+export default function OrderDetails(){
+
+    return <SideBar page={<OrderDetailsSection/>}/>
 }
