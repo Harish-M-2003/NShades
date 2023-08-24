@@ -37,7 +37,7 @@ declare module "next-auth" {
 export const authOptions: NextAuthOptions = {
   
   session : {
-    maxAge:300*60,
+    maxAge:24*60*60*60,
   },
   callbacks: {
     session: ({ session, user }) => ({

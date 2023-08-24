@@ -1,4 +1,5 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
+"use client";
+import React, { type MutableRefObject, useEffect, useRef, useState } from 'react';
 
 import { motion, useAnimation } from 'framer-motion';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import config from '~/config/index.jsindex.json';
+// import config from '~/config/index.jsindex.json';
+import config from "~/config/index.json";
 
 const Pricing = () => {
   const { pricing } = config;

@@ -11,7 +11,7 @@ const Menu = () => {
   const { name: companyName, logo } = company;
 
   return (
-    <>
+    <div className='bg'>
       <svg
         className={`hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-background transform translate-x-1/2`}
         fill="currentColor"
@@ -19,7 +19,7 @@ const Menu = () => {
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        <polygon points="50,0 100,0 50,100 0,100" />
+        <polygon points="50,0 100,0 50,100 0,100"/>
       </svg>
 
       <Popover>
@@ -122,7 +122,7 @@ const Menu = () => {
           </Popover.Panel>
         </Transition>
       </Popover>
-    </>
+    </div>
   );
 };
 

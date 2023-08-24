@@ -1,11 +1,11 @@
 import "~/styles/globals.css";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-sans",
+// });
 
 export const metadata = {
   title: "Create T3 App",
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           "bg-background font-sans text-foreground",
-          inter.variable,
+          // inter.variable,
         )}
       >
         {children}

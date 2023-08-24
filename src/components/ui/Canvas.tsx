@@ -1,4 +1,5 @@
-import { useRef, FC, useEffect, useState } from 'react';
+"use client";
+import { useRef, type FC, useEffect, useState } from 'react';
 
 import { CanvasContext } from '~/hooks/useCanvas';
 import useResponsiveSize from '~/hooks/useResponsiveSize';

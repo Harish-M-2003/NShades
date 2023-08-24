@@ -33,7 +33,7 @@
     "title": "NShades",
     "subtitle": "Your Gateway to Free E-commerce!",
     "description" : "Are you ready to embark on a journey that puts the power of e-commerce directly in your hands? At Nshades, we're revolutionizing the way you approach online business. Say goodbye to hefty upfront fees and complex setup processes. Say hello to a seamless, hassle-free e-commerce experience that empowers you to sell your products online, effortlessly.",
-    "img": "/assets/images/LandingSVG.svg",
+    "img": "https://cdn.pixabay.com/photo/2018/03/27/21/43/startup-3267505_1280.jpg",
     "primaryAction": {
       "text": "Get started",
       "href": "/SignUpPage"
@@ -66,32 +66,32 @@
       {
         "name": "Cost-Free Launch",
         "description" : "Starting an online business shouldn't drain your wallet. With Nshades, you can kick-start your e-commerce journey without any financial barriers.",
-        "icon": "/assets/images/react.png"
+        "icon": "https://www.bing.com/th?id=OIP.JtjWGkOYkJ_CZQU7JRrsvwHaHa&w=180&h=185&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2"
       },
       {
         "name": "User-Friendly Interface",
         "description" : "User-Friendly Interface: Our platform is designed with you in mind. You don't need to be a tech expert to set up shop and start selling. It's as easy as a few clicks.",
-        "icon": "/assets/images/tailwindcss.svg"
+        "icon": "https://th.bing.com/th/id/OIP.UgLuWRSVzi-131Cv16ciUgHaHY?pid=ImgDet&w=180&h=178&c=7&dpr=2.1"
       },
       {
         "name": "Stunning Storefronts",
         "description":"Your brand deserves to shine. Our customizable templates and design options allow you to create a captivating storefront that resonates with your audience.",
-        "icon": "/assets/images/nextjs.svg"
+        "icon": "https://th.bing.com/th/id/OIP.6kvtgpIcFfHUmUYNpzAGlwHaHa?w=180&h=180&c=7&r=0&o=5&dpr=2.1&pid=1.7"
       },
       {
         "name": "Secure Transactions",
         "description" : "Rest easy knowing that your customers' transactions are secured by top-notch encryption and payment gateways.",
-        "icon": "/assets/images/ts.png"
+        "icon": "https://th.bing.com/th/id/OIP.14CvxX9G4Jvl0Qsqha7-9gAAAA?w=203&h=203&c=7&r=0&o=5&dpr=2.1&pid=1.7"
       },
       {
         "name": "Robust Analytics",
         "description" : "Track your performance, monitor sales trends, and make informed decisions to drive your business forward.",
-        "icon": "/assets/images/ts.png"
+        "icon": ""
       },
       {
         "name": "Marketing Support",
         "description" : "We're not just about setting up shop – we're here to help you succeed. Benefit from marketing resources, tips, and strategies to boost your online presence.",
-        "icon": "/assets/images/ts.png"
+        "icon": "https://th.bing.com/th/id/OIP.6Jo342Oian9N5vw8tqMRQgHaHa?w=181&h=194&c=7&r=0&o=5&dpr=2.1&pid=1.7"
       }
     ]
   },
