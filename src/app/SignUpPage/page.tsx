@@ -5,6 +5,7 @@ import SignUpSvg from "../../../public/images/LandingSVG.svg";
 import config from "../../config/index.json";
 import { AiFillEye, AiOutlineEye } from "react-icons/ai";
 import Image from "next/image";
+import {signIn} from "next-auth/react";
 
 export default function SignUpPage(){
 
@@ -12,8 +13,17 @@ export default function SignUpPage(){
     const [password , setPassword] = useState("");
     const [confirmPassword , setConfirmPassword] = useState("");
     const [showPassword , setShowPassword] = useState(false);
-    
-//   const { mainHero } = config; 
+
+    async function submit(){
+        const result = await signIn("credentials" , {
+            username : email,
+            password : password,
+            redirect : false,
+            // callbackUrl : "/",
+        });
+        console.log(result);
+    }
+
     return (
         <div className=" md:p-5 h-full">
             <div className="w-full flex rounded-2xl h-full ">
@@ -54,7 +64,7 @@ export default function SignUpPage(){
                             
                         </div>
                         <div className="w-full flex my-5 mb-4 mt-10 sm:my-10 justify-center">
-                            <button disabled = {((password.length != 0 || confirmPassword.length != 0) && (password === confirmPassword))?false:true} className={`${((password.length != 0 || confirmPassword.length != 0) && (password === confirmPassword))?"bg-[#ec4755] hover:bg-red-600":"bg-gray-300"} rounded-lg  text-white font-bold w-full p-3 `} onClick={(e) => {console.log(email , password , confirmPassword)}}>Sign Up</button>
+                            <button disabled = {((password.length != 0 || confirmPassword.length != 0) && (password === confirmPassword))?false:true} className={`${((password.length != 0 || confirmPassword.length != 0) && (password === confirmPassword))?"bg-[#ec4755] hover:bg-red-600":"bg-gray-300"} rounded-lg  text-white font-bold w-full p-3 `} onClick={submit}>Sign Up</button>
                         </div>
 
                         <div className="flex justify-center mt-10 sm:mt-5">

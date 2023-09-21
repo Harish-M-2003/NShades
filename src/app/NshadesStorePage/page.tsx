@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import {mainHero } from "../../config/index.json";
+// import {mainHero } from "../../config/index.json";
 import NShadesSignUpPage from "../../../public/images/LandingSVG.svg";
 import { AiFillEye, AiOutlineEye } from "react-icons/ai";
 import Image from "next/image";
